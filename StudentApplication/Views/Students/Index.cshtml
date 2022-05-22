@@ -1,0 +1,106 @@
+﻿@model IEnumerable<StudentApplication.Models.Students>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>  <br />
+    
+    <button  onclick="@("window.location.href='" + @Url.Action("Export", "Students") + "'");" style="background-color:green;color:white;border-radius: 10%" asp-action="Export">Export Delta</button>
+    
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenderOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.landlineNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CellPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImmigrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institution)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExportDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenderOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.landlineNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CellPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImmigrationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Institution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExportDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>
